@@ -1,0 +1,209 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Company {
+  """Id of the company"""
+  id: Int!
+
+  """Full name of the company"""
+  fullName: String!
+
+  """Name of the company"""
+  companyName: String!
+
+  """Company official ID"""
+  officialId: String!
+
+  """Password"""
+  password: String!
+
+  """Mobile number"""
+  mobile: String!
+
+  """Organization Size"""
+  organizationSize: Float!
+
+  """Organaization Type 0-compnay , 1- agency"""
+  organaizationType: Float!
+
+  """Domain Name"""
+  domainName: String!
+
+  """Authorized to 0 - No ,1 - yes """
+  authorized_to: Float!
+  createdOn: DateTime!
+  updatedOn: DateTime!
+  deletedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Role {
+  """Id of the role"""
+  id: Int!
+
+  """Name of the roll"""
+  name: String!
+
+  """Description of the roll"""
+  description: String!
+
+  """roll is active or not"""
+  isActive: Boolean!
+}
+
+type User {
+  """Id of the user"""
+  userId: String!
+
+  """Name of the user"""
+  fullname: String!
+
+  """Password of the user"""
+  password: String!
+
+  """Phone number of the user"""
+  phone: String!
+
+  """Email of the user"""
+  email: String!
+  createdOn: DateTime!
+  updatedOn: DateTime!
+  deletedAt: DateTime
+}
+
+type Query {
+  company(id: Int!): Company!
+  role: [Role!]!
+  user(userId: String!): User!
+  inActiveUsers: [User!]!
+  users(offset: String = "0", limit: String = "25"): [User!]!
+  findOne(userId: String!): User!
+}
+
+type Mutation {
+  createCompany(createCompanyInput: CreateCompanyInput!): Company!
+  updateCompany(updateCompanyInput: UpdateCompanyInput!): Company!
+  removeCompany(id: Int!): Company!
+  createRole(createRoleInput: CreateRoleInput!): Role!
+  updateRole(updateRoleInput: UpdateRoleInput!): Role!
+  deleteRole(id: Float!): Role!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  deleteUser(userId: String!): User!
+}
+
+input CreateCompanyInput {
+  """Full name of the company"""
+  fullName: String!
+
+  """Name of the company"""
+  companyName: String!
+
+  """Company official ID"""
+  officialId: String!
+
+  """Password"""
+  password: String!
+
+  """Mobile number"""
+  mobile: String!
+
+  """Organization Size"""
+  organizationSize: Float!
+
+  """Organaization Type 0-compnay , 1- agency"""
+  organaizationType: Float!
+
+  """Domain Name"""
+  domainName: String!
+
+  """Authorized to 0 - No ,1 - yes """
+  authorized_to: Float!
+}
+
+input UpdateCompanyInput {
+  """Full name of the company"""
+  fullName: String
+
+  """Name of the company"""
+  companyName: String
+
+  """Company official ID"""
+  officialId: String
+
+  """Password"""
+  password: String
+
+  """Mobile number"""
+  mobile: String
+
+  """Organization Size"""
+  organizationSize: Float
+
+  """Organaization Type 0-compnay , 1- agency"""
+  organaizationType: Float
+
+  """Domain Name"""
+  domainName: String
+
+  """Authorized to 0 - No ,1 - yes """
+  authorized_to: Float
+  id: Int!
+}
+
+input CreateRoleInput {
+  """Name of the roll"""
+  name: String!
+
+  """Description of the roll"""
+  description: String!
+
+  """roll is active or not"""
+  isActive: Boolean!
+}
+
+input UpdateRoleInput {
+  """Name of the roll"""
+  name: String
+
+  """Description of the roll"""
+  description: String
+
+  """roll is active or not"""
+  isActive: Boolean
+  id: Int!
+}
+
+input CreateUserInput {
+  """Name of the user"""
+  fullname: String!
+
+  """Password of the user"""
+  password: String!
+
+  """Phone number of the user"""
+  phone: String!
+
+  """Email of the user"""
+  email: String!
+}
+
+input UpdateUserInput {
+  """Name of the user"""
+  fullname: String
+
+  """Password of the user"""
+  password: String
+
+  """Phone number of the user"""
+  phone: String
+
+  """Email of the user"""
+  email: String
+  userId: String!
+}
